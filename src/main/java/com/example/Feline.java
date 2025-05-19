@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.List;
 
+// класс зависимости
 public class Feline extends Animal implements Predator {
 
     @Override
