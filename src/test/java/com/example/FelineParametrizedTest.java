@@ -16,7 +16,7 @@ public class FelineParametrizedTest {
             this.expected = expected;
             this.kittensCount = kittensCount;
         }
-        @Parameterized.Parameters // добавили аннотацию
+        @Parameterized.Parameters(name = "Тестовые данные:{0}{1}") // добавили аннотацию с аргументом name, где {0}{1} - индексы параметров
         public static Object[][] data() {
             return new Object[][]{
                     {1, 1},
