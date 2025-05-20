@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class AlexLionTest {
     @Mock
-    private InterfaseFeline felineMock;
+    private Feline felineMock;
 
     @Test
     public void testConstructorMaleSex() throws Exception {

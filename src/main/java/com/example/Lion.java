@@ -6,19 +6,21 @@ import java.util.List;
 public class Lion {
 
     private final boolean hasMane;
-    private final InterfaseFeline feline;
+    private final Feline feline;
 
-    public Lion(String sex, InterfaseFeline feline) throws Exception {
+    public Lion(String sex, Feline feline) throws Exception {
+        if (feline == null) {
+            throw new IllegalArgumentException("Feline не может быть null");
+        }
         this.feline = feline;
         if ("Самец".equals(sex)) {
-            hasMane = true;
+            this.hasMane = true;
         } else if ("Самка".equals(sex)) {
-            hasMane = false;
+            this.hasMane = false;
         } else {
             throw new Exception("Используйте допустимые значения пола животного - самец или самка");
         }
     }
-
 
     public int getKittens() {
         return feline.getKittens();

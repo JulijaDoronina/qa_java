@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 public class LionTest {
 
     @Mock
-    private InterfaseFeline felineMock;
+    private Feline felineMock;
 
     @Test
     public void testDoesHaveManeMale() throws Exception {
