@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -32,15 +33,21 @@ public class LionTest {
     }
     @Test
     public void testGetKittens() throws Exception {
-        when(felineMock.getKittens()).thenReturn(3);
+        when(felineMock.getKittens()).thenReturn(1);
         Lion lion = new Lion("Самец", felineMock);
-        assertEquals(3, lion.getKittens());
+        assertEquals("Лев должен возвращать 1 котенка по умолчанию",
+                1, lion.getKittens());
+
+        verify(felineMock).getKittens();
     }
     @Test
     public void testGetFood() throws Exception {
-        List<String> expectedFood = List.of("Животные", "Птицы");
+        List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         when(felineMock.getFood("Хищник")).thenReturn(expectedFood);
         Lion lion = new Lion("Самка", felineMock);
-        assertEquals(expectedFood, lion.getFood());
+        List<String> actualFood = lion.getFood();
+        assertEquals("Лев должен возвращать список еды для хищников",
+                expectedFood, actualFood);
+        verify(felineMock).getFood("Хищник");
     }
 }
