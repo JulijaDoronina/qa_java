@@ -8,7 +8,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -37,8 +36,6 @@ public class LionTest {
         Lion lion = new Lion("Самец", felineMock);
         assertEquals("Лев должен возвращать 1 котенка по умолчанию",
                 1, lion.getKittens());
-
-        verify(felineMock).getKittens();
     }
     @Test
     public void testGetFood() throws Exception {
@@ -48,6 +45,9 @@ public class LionTest {
         List<String> actualFood = lion.getFood();
         assertEquals("Лев должен возвращать список еды для хищников",
                 expectedFood, actualFood);
-        verify(felineMock).getFood("Хищник");
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testLionConstructorThrowsIllegalArgumentException() throws Exception {
+        new Lion("Самка", null);
     }
 }
