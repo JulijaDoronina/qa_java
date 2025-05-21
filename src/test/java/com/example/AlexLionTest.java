@@ -18,13 +18,13 @@ public class AlexLionTest {
     @Test
     public void testConstructorMaleSex() throws Exception {
 
-        AlexLion alex = new AlexLion("ЛюбоеЗначение", felineMock);
+        AlexLion alex = new AlexLion(felineMock);
         assertTrue(alex.doesHaveMane());
     }
 
     @Test
     public void testGetFriends() throws Exception {
-        AlexLion alex = new AlexLion("Самец", felineMock);
+        AlexLion alex = new AlexLion(felineMock);
         List<String> expectedFriends = List.of(
                 "зебра Марти",
                 "бегемотиха Глория",
@@ -35,20 +35,20 @@ public class AlexLionTest {
 
     @Test
     public void testGetPlaceOfLiving() throws Exception {
-        AlexLion alex = new AlexLion("Самец", felineMock);
+        AlexLion alex = new AlexLion(felineMock);
         assertEquals("Нью-Йоркский зоопарк", alex.getPlaceOfLiving());
     }
 
     @Test
     public void testGetKittens() throws Exception {
-        AlexLion alex = new AlexLion("Самец", felineMock);
+        AlexLion alex = new AlexLion(felineMock);
         assertEquals(0, alex.getKittens());
     }
 
     @Test
     public void testConstructorInvalidSex() throws Exception {
         // работает с любым полом, но всегда использует "Самец"
-        AlexLion alex = new AlexLion("ЛюбоеЗначение", felineMock);
+        AlexLion alex = new AlexLion(felineMock);
         assertTrue(alex.doesHaveMane()); // Проверяем что это самец
     }
 }
